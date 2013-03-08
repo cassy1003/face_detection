@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap-responsive.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/ccv.js"></script>
+    <script type="text/javascript" src="/javascripts/face.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type='text/javascript' src='/javascripts/bootstrap.js'></script>
+    <script type='text/javascript' src='/javascripts/bootstrap-dropdown.js'></script>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="brand red" href="/"><%= title %></div>
+          <div class="nav-collapse collapse navbar-inverse-collapse">
+            <ul class="nav nav-pills">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Video<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a onclick="sample.video.show();">on</a></li>
+                  <li><a onclick="sample.video.hide();">off</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Show<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a onclick="sample.face.drawStart();">on</a></li>
+                  <li><a onclick="sample.face.drawEnd();">off</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Draw<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a onclick="sample.face.changePict('square');">Square</a></li>
+                  <li><a onclick="sample.face.changePict('cute');">Cute</a></li>
+                  <li><a onclick="sample.face.changePict('cat');">Cat</a></li>
+                  <li><a onclick="sample.face.changePict('lion');">Lion</a></li>
+                  <li><a onclick="sample.face.changePict('laughingman');">Laughing Man</a></li>
+                  <li><a onclick="sample.face.changePict('daruma');">Daruma</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <video id="localVideo" src="" width="320" height="240" autoplay style="border:1px solid black"></video>
+      <canvas id="localCanvas" width="320" height="240" style="opacity:1"></canvas>
+      <hr>
+      <div id="camData"></div>
+    </div>
+    <script type="text/javascript" src="/javascripts/core.js"></script>
+    <script type="text/javascript" src="/javascripts/work.js"></script>
+    <script type="text/javascript">
+      $('.dropdown-toggle').dropdown();
+      window.addEventListener("load", function(){
+        sample.video.on();
+      }, false);
+    </script>
+  </body>
+</html>
